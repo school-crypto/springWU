@@ -1,37 +1,101 @@
 :root{
-    --border_ph: black;
+    --border_ph: blue;
     --menu_ph: black;
-    --border_radius: 2rem;
+    --border_radius: 4rem;
+    --border_thickness: 2px;
+    --padding: 2rem;
+}
+
+/* TYPOGRAPHY */
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+}
+
+p, a, li, span {
+    font-family: 'Lato', sans-serif;
 }
 
 body{
-    margin:0;
-    background-color: aqua;
+    margin: 0;
+    background-image: url(../img/background.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* PRODUCT GRID */
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.product-card {
+    border: var(--border_thickness) solid var(--border_ph);
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.product-img {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.product-card h2 {
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+}
+
+.product-card p {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 1.2rem;
+    border: var(--border_thickness) solid var(--border_ph);
+    border-radius: 2rem;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    transition: background 0.2s, color 0.2s;
+}
+
+.btn:hover {
+    background: var(--border_ph);
+    color: white;
 }
 
 /* MENU */
 
 .menu{
-    height:100vh;
-    width:80vw;
-    background:var(--menu_ph);
-    position:fixed;
-    top:0;
-    right:-100vw;
-    transition:right 0.3s;
-    box-shadow:10px 0px 21px -10px rgba(0,0,0,0.75);
-    z-index:10;
+    height: 100vh;
+    width: 80vw;
+    background: var(--menu_ph);
+    position: fixed;
+    top: 0;
+    right: -100vw;
+    transition: right 0.3s;
+    box-shadow: 10px 0px 21px -10px rgba(0,0,0,0.75);
+    z-index: 10;
     background-color: var(--menu_ph);
 }
 
 .menu.show{
-    right:0;
+    right: 0;
 }
 
 .menu ul{
-    color:white;
-    list-style:none;
-    padding:2rem;
+    color: white;
+    list-style: none;
+    padding: 2rem;
 }
 
 /* MENU BUTTON */
@@ -46,84 +110,99 @@ body{
 }
 
 .menu-button i.material-icons{
-    font-size:2.5rem;
+    font-size: 2.5rem;
 }
 
 /* OVERLAY */
 
- .fade-layer{
-    position:fixed;
-    top:0;
-    left:0;
-    right:0;
-    bottom:0;
-    background-color:rgba(0,0,0,0.5);
-    display:none;
-    z-index:5;
+.fade-layer{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    display: none;
+    z-index: 5;
 }
 
 .fade-layer.visible{
-    display:block;
+    display: block;
 }
 
 /* GRID LAYOUT */
 
-
 header{ 
-    grid-area:hd;
+    grid-area: hd;
+    padding: var(--padding)
 }
 main{ 
-    grid-area:mn; 
+    grid-area: mn; 
 }
 section{ 
-    grid-area:sc; 
+    grid-area: sc; 
 }
 aside{ 
-    grid-area:as; 
-    display: none;
+    grid-area: as;
 }
 footer{ 
-    grid-area:ft; 
+    grid-area: ft; 
 }
 
-.wrapper, main, section, aside, footer, header{
-    border-radius:var(--border_radius);
-    border:1px solid var(--border_ph);
+main, section, aside, footer{
+    border-radius: var(--border_radius);
+    border: var(--border_thickness) solid var(--border_ph);
+    padding: var(--padding);
 }
 
 .wrapper{
-    display:grid;
-    width:100vw;
-    border-style: solid;
-    border: 1rem;
-    grid-template-columns: 1fr auto;
-    grid-template-rows: 10vh auto 50px 10vh;
+    display: grid;
+    width: 100vw;
+    box-sizing: border-box;
+    padding: var(--padding);
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto;
     gap: 1rem;
     grid-template-areas: 
-    "hd"
-    "mn"
-    "sc"
-    "ft"
+        "hd"
+        "mn"
+        "sc"
+        "ft"
     ;
 }
 
+aside{
+    display: none;
+}
 
-/* MOBIL */
+.brand {
+    font-size: 3rem
+}
 
-/* @media (max-width:600px){
-
-    body{
-        background-color:aqua;
-    }
-
+/* DESKTOP */
+@media (min-width: 768px) {
     .wrapper{
-        grid-template-columns:1fr auto;
-        grid-template-rows:10vh auto 50px 10vh;
+        font-size: 2rem;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto auto auto;
         grid-template-areas:
-        "hd mb"
-        "mn mn"
-        "sc sc"
-        "ft ft";
+            "hd hd"
+            "mn mn"
+            "sc as"
+            "ft ft"
+        ;
     }
 
-} */
+    aside{
+        display: block;
+    }
+
+    .brand {
+        font-size: 4rem
+    }
+}
+
+.no_underline{
+    text-decoration: none;
+    color: black;
+}
