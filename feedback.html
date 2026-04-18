@@ -6,7 +6,7 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-  <title>Om oss – Nordtek</title>
+  <title>Feedback – Nordtek</title>
 </head>
 <body>
 
@@ -21,7 +21,7 @@
 
 <div class="fade_layer"></div>
 
-<div class="wrapper_om">
+<div class="wrapper_feedback">
 
   <header>
     <button class="menu_button" aria-label="Öppna meny">
@@ -30,20 +30,35 @@
     <h1 class="brand"><a href="index.html" class="no_underline"><img src="img/Nordtek.png" alt="Nordtek logga"></a></h1>
   </header>
 
-  <main>
-    <h2>Om oss</h2>
-    <p>Vi på Nordtek grundades 2010 med en enkel vision — att skapa teknik som verkligen fungerar för människor. Sedan dess har vi vuxit till ett av Nordens mest betrodda varumärken inom periferiutrustning.</p>
+  <main class="feedback_main">
+    <h2>Lämna feedback</h2>
+    <p>Vi uppskattar din åsikt! Fyll i formuläret nedan så återkommer vi så snart vi kan.</p>
 
-    <h3>Vår historia</h3>
-    <p>Det började i ett litet garage i Göteborg med tre personer och en dröm. Idag har vi över 200 anställda och säljer produkter i 15 länder.</p>
+    <div class="feedback_form">
 
-    <h3>Vårt team</h3>
-    <p>Vi är designers, ingenjörer och teknikentusiaster som delar en passion för kvalitet. Varje produkt vi gör genomgår hundratals timmars testning innan den når dina händer.</p>
+      <div class="form_group">
+        <label for="firstname">Förnamn</label>
+        <input type="text" id="firstname" placeholder="Ditt förnamn">
+      </div>
 
-    <h3>Vår vision</h3>
-    <p>Vi tror på en framtid där teknik är hållbar, tillgänglig och byggd för att hålla. Det är därför vi investerar i forskning, återvinning och rättvis produktion varje dag.</p>
+      <div class="form_group">
+        <label for="lastname">Efternamn</label>
+        <input type="text" id="lastname" placeholder="Ditt efternamn">
+      </div>
 
-    <a href="products.html" class="btn">Se våra produkter</a>
+      <div class="form_group">
+        <label for="email">E-post</label>
+        <input type="email" id="email" placeholder="din@email.se">
+      </div>
+
+      <div class="form_group">
+        <label for="message">Feedback</label>
+        <textarea id="message" rows="10" placeholder="Skriv din feedback här..."></textarea>
+      </div>
+
+      <button class="btn feedback_submit">Skicka feedback</button>
+
+    </div>
   </main>
 
   <footer>
